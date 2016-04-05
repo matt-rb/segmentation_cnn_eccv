@@ -26,6 +26,7 @@ while true; do
     echo "3 - alex_fullconv_1000"
     echo "4 - alex_fc6_bin8"
     echo "5 - alex_fc7_bin8"
+    echo "6 - fcnalex_pascal_fc7"
     exit 1;;
     -m|--model) MODEL="$2" ; shift ;;
     -d|--dir) FILE="$3" ; shift ;;
@@ -98,6 +99,19 @@ if [ $MODEL == all ] || [ $MODEL == alex_fc7_bin8 ]; then
     wget https://www.dropbox.com/s/tb9uyi1rdtck0n8/th_model_fc7_bin8.net
 fi
 
+if [ $MODEL == all ] || [ $MODEL == fcnalex_pascal_fc7 ]; then
+    if [ -f "fcnalex_pascal_fc7.net" ]; then
+        rm fcnalex_pascal_fc7.net
+    fi
+    wget https://www.dropbox.com/s/1gv3hofpgi0gqfm/fcnalex_pascal_fc7.net
+fi
+
+if [ $MODEL == all ] || [ $MODEL == fcnalex_pascal ]; then
+    if [ -f "fcnalex_pascal.net" ]; then
+        rm fcnalex_pascal.net
+    fi
+    wget https://www.dropbox.com/s/o73u9i0g7h9i3ai/fcnalex_pascal.net
+fi
 
 #echo "Unzipping..."
 #tar -xf caffe_ilsvrc12.tar.gz && rm -f caffe_ilsvrc12.tar.gz

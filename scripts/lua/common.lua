@@ -34,6 +34,10 @@ th_model_fc7_bin8_eccv = 'model/th_model_fc7_bin8_eccv.net'
 -- fcn-alex Trevor Darrell
 th_model_fcn8s = 'model/fcn-8s-pascal.net'
 th_model_fcn32s = 'model/fcn32.net'
+proto_fcnalex_pascal = 'model/fcn-alexnet-pascal-fc7.prototxt'
+model_fcnalex_pascal= 'model/fcn-alexnet-pascal.caffemodel'
+th_model_fcnalex_pascal = 'model/fcnalex_pascal.net'
+th_model_fcnalex_pascal_fc7 = 'model/fcnalex_pascal_fc7.net'
 
 -- binary models vgg16
 th_model_vgg16_fc7_bin8 = 'model/th_model_vgg16_fc7_bin8.net'
