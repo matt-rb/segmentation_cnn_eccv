@@ -38,6 +38,13 @@ function load_image(image_dir, resize_to, sq, sub_min)
     resize_val_x = 0
     resize_val_y = 0
     img = image.load(image_dir)
+    if img:size(1)<3 then
+        tmp = torch.Tensor(3,img:size(2),img:size(1))
+        tmp[1]=img[1]
+        tmp[2]=img[1]
+        tmp[3]=img[1]
+        img=tmp
+    end
     if sub_min==1 then
         print 'hi'
         mean = mean:repeatTensor(img:size(3),img:size(2),1)

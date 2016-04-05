@@ -2,15 +2,15 @@
 -- Created by Mahdyar Ravanbakhsh.
 -- Date: 27/01/16 - 23.15
 -- ------------------------------- 
--- Desc : Extract fc6 and fc7 output feats for dataset and save to MATLAB mat file
+-- Desc : Extract fc7 output feats for dataset and save to MATLAB mat file
 -- -------------------------------
 
 require("scripts.lua.common")
 matio = require 'matio'
 
 -- directories setup
-image_dir= 'data/pascal'
-feats_output_dir= 'output/feat_pascal'
+image_dir= 'data/crowd'
+feats_output_dir= 'output/crowd'
 file_list = scandir(image_dir, '.jpg')
 -- input standard alex
 -- dis_resize = 227
@@ -19,13 +19,13 @@ dis_resize = 4
 sq=0
 
 -- load net
-net_conv = torch.load(th_model_full_conv_fc7)
+net_conv = torch.load(th_model_fcnalex_pascal_fc7)
 -- disable flips, dropouts and batch normalization
 net_conv:evaluate()
 print ("NET:\n"..model2text(net_conv))
 
 -- Extract features
-for img_idx=118, table.getn(file_list) do
+for img_idx=1, table.getn(file_list) do
     print ("Extract patch No."..img_idx..'/'..table.getn(file_list))
     img_name = image_dir..'/'..file_list[img_idx]
     img = load_image(img_name, dis_resize,sq)
